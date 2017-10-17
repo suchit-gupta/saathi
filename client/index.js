@@ -1,4 +1,10 @@
 var x = document.getElementById("demo");
+
+var checkIn = document.getElementById('checkIn');
+checkIn.addEventListener('click', function() {
+    getLocation();
+}, false);
+
 function getLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, showError);
