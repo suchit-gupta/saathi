@@ -1,9 +1,25 @@
 import { Connect, SimpleSigner } from 'uport-connect'
 
-const uport = new Connect('uPort Demo', {
-  clientId: '2oeXufHGDpU51bfKBsZDdu7Je9weJ3r7sVG',
-  signer: SimpleSigner('c818c2665a8023102e430ef3b442f1915ed8dc3abcaffbc51c5394f03fc609e2')
-})
+    const uport = new Connect('0x130734cf', {
+      clientId: '2oecSUadktHeDqPFZysuou1DsX7niGdLudG',
+      network: 'rinkeby or ropsten or kovan',
+      signer: SimpleSigner('SIGNING KEY')
+    })
 
-const web3 = uport.getWeb3()
-export { web3, uport }
+    // Request credentials to login
+    uport.requestCredentials({
+      requested: ['name', 'phone', 'country'],
+      notifications: true // We want this if we want to recieve credentials
+    })
+    .then((credentials) => {
+      // Do something
+    })
+
+    // Attest specific credentials
+    uport.attestCredentials({
+      sub: THE_RECEIVING_UPORT_ADDRESS,
+      claim: {
+        CREDENTIAL_NAME: CREDENTIAL_VALUE
+      },
+      exp: new Date().getTime() + 30 * 24 * 60 * 60 * 1000, // 30 days from now
+    })

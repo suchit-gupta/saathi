@@ -1,3 +1,8 @@
+
+
+
+document.getElementById("afterLogin").style.display = "none";
+
 var x = document.getElementById("demo");
 
 var checkIn = document.getElementById('checkIn');
