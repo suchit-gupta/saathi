@@ -1,7 +1,34 @@
 
+$('#calendar').fullCalendar({
+    header: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+    },
+    defaultDate: '2017-10-12',
+    editable: true,
+    eventLimit: false,
+        events: [
+        {
+            title: 'All Day Event',
+            start: '2017-10-11'
+        },
+        {
+            title: 'Long Event',
+            start: '2017-10-07',
+            end: '2017-10-10'
+        },
+        {
+            id: 999,
+            title: 'Repeating Event',
+            start: '2017-10-09T16:00:00'
+        },
+    ]
+});
 
 
-document.getElementById("afterLogin").style.display = "none";
+document.getElementById("afterLogin").style.display = "block";
+
 
 var x = document.getElementById("demo");
 
